@@ -1,13 +1,367 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Dự Án</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .timeline {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .timeline h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .day {
+            margin-bottom: 40px;
+        }
+        .day h2 {
+            font-size: 24px;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #e9f0f7;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .task:hover {
+            transform: translateX(10px);
+            background-color: #cfe7f8;
+        }
+        .time {
+            font-weight: bold;
+            color: #333;
+            flex-basis: 20%;
+        }
+        .task-details {
+            font-size: 16px;
+            color: #555;
+            flex-basis: 75%;
+        }
+        .task-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .task-details ul li {
+            margin-bottom: 5px;
+        }
+        .break {
+            background-color: #fff7e5;
+            color: #8a6d3b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="timeline">
+    <h1>Lịch Trình Dự Án</h1>
+
+    <!-- Ngày 1 -->
+    <div class="day">
+        <h2>Ngày 1: Xác định yêu cầu & lập kế hoạch</h2>
+        <div class="task">
+            <div class="time">08:00 - 09:30</div>
+            <div class="task-details">
+                <strong>Phân tích yêu cầu & đối thủ</strong>
+                <ul>
+                    <li>Xác định loại website TMĐT (B2B, B2C, Marketplace)</li>
+                    <li>Nghiên cứu thị trường, đối thủ cạnh tranh</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">09:30 - 11:00</div>
+            <div class="task-details">
+                <strong>Chọn công nghệ & nền tảng</strong>
+                <ul>
+                    <li>Chọn WordPress + WooCommerce</li>
+                    <li>Xác định theme và plugin cần thiết</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">11:00 - 12:00</div>
+            <div class="task-details">
+                <strong>Chọn hosting & domain</strong>
+                <ul>
+                    <li>Mua hosting/VPS, đăng ký tên miền</li>
+                    <li>Cấu hình SSL</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="task break">
+            <div class="time">12:00 - 13:30</div>
+            <div class="task-details">Nghỉ trưa</div>
+        </div> -->
+        <div class="task">
+            <div class="time">13:30 - 15:00</div>
+            <div class="task-details">
+                <strong>Lập kế hoạch phát triển</strong>
+                <ul>
+                    <li>Xác định timeline cụ thể</li>
+                    <li>Chia công việc theo từng giai đoạn</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">15:00 - 17:00</div>
+            <div class="task-details">
+                <strong>Chuẩn bị và lên kế hoạch cho các tính năng, chức năng cần sử dụng </strong>
+                <ul>
+                    <li>Đề xuất về plugin (nếu cần thiết)</li>
+                    <li>Đề xuất về sử dụng API (nếu có) hoặc sử dụng nguồn từ bên thứ 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 2 -->
+    <div class="day">
+        <h2>Ngày 2: Code giao diện dựa trên file thiết kế có sẵn</h2>
+        <div class="task">
+            <div class="time">08:00 - 10:00</div>
+            <div class="task-details">
+                <strong>Code trang chủ</strong>
+                <ul>
+                    <li>Tạo mockup chi tiết cho trang chủ</li>
+                    <li>Định hình giao diện, bố cục</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">10:00 - 12:00</div>
+            <div class="task-details">
+                <strong>Code trang danh mục & sản phẩm</strong>
+                <ul>
+                    <li>Code UI/UX cho danh mục, sản phẩm</li>
+                    <li>Bố trí hình ảnh, giá, thông tin sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="task break">
+            <div class="time">12:00 - 13:30</div>
+            <div class="task-details">Nghỉ trưa</div>
+        </div> -->
+        <div class="task">
+            <div class="time">13:30 - 15:30</div>
+            <div class="task-details">
+                <strong>Code trang thanh toán & giỏ hàng</strong>
+                <ul>
+                    <li>Xây dựng giao diện checkout</li>
+                    <li>Tích hợp các tùy chọn vận chuyển, thanh toán</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">15:30 - 17:00</div>
+            <div class="task-details">
+                <strong>Chốt giao diện & chuẩn bị vào phần tính năng</strong>
+                <ul>
+                    <li>Hoàn thiện code UI/UX</li>
+                    <li>Kiểm tra lần cuối trước khi bắt đầu code</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 3 -->
+    <div class="day">
+        <h2>Ngày 3: Cài đặt WordPress, WooCommerce & Theme</h2>
+        <div class="task">
+            <div class="time">08:00 - 09:30</div>
+            <div class="task-details">
+                <strong>Cài đặt WordPress & SSL</strong>
+                <ul>
+                    <li>Cấu hình WordPress, cập nhật phiên bản mới nhất</li>
+                    <li>Kết nối tên miền, kích hoạt SSL</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">09:30 - 11:00</div>
+            <div class="task-details">
+                <strong>Cài đặt & cấu hình WooCommerce</strong>
+                <ul>
+                    <li>Cài đặt WooCommerce</li>
+                    <li>Cấu hình tiền tệ, thuế, vận chuyển</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">11:00 - 12:00</div>
+            <div class="task-details">
+                <strong>Cài đặt theme & plugin cần thiết</strong>
+                <ul>
+                    <li>Chọn theme phù hợp (Sử dụng theme có sẵn hoặc tự phát triển)</li>
+                    <li>Cài đặt plugin cơ bản (SEO, bảo mật, cache)</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="task break">
+            <div class="time">12:00 - 13:30</div>
+            <div class="task-details">Nghỉ trưa</div>
+        </div> -->
+        <div class="task">
+            <div class="time">13:30 - 15:30</div>
+            <div class="task-details">
+                <strong>Thiết lập trang sản phẩm & danh mục</strong>
+                <ul>
+                    <li>Thêm danh mục sản phẩm</li>
+                    <li>Cấu hình hiển thị sản phẩm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">15:30 - 17:00</div>
+            <div class="task-details">
+                <strong>Kiểm tra tổng thể & chuẩn bị cho ngày 4</strong>
+                <ul>
+                    <li>Test giao diện trên desktop & mobile</li>
+                    <li>Chuẩn bị cho quá trình phát triển tính năng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ngày 4 -->
+    <div class="day">
+        <h2>Ngày 4: Phát triển tính năng & chức năng</h2>
+        <div class="task">
+            <div class="time">08:00 - 10:00</div>
+            <div class="task-details">
+                <strong>Phát triển chức năng giỏ hàng</strong>
+                <ul>
+                    <li>Cài đặt và cấu hình giỏ hàng</li>
+                    <li>Thêm tính năng thanh toán online</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">10:00 - 12:00</div>
+            <div class="task-details">
+                <strong>Phát triển chức năng tìm kiếm</strong>
+                <ul>
+                    <li>Tạo chức năng tìm kiếm sản phẩm</li>
+                    <li>Thêm bộ lọc tìm kiếm nâng cao</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="task break">
+            <div class="time">12:00 - 13:30</div>
+            <div class="task-details">Nghỉ trưa</div>
+        </div> -->
+        <div class="task">
+            <div class="time">13:30 - 17:00</div>
+            <div class="task-details">
+                <strong>Tích hợp các cổng thanh toán</strong>
+                <ul>
+                    <li>Thêm các cổng thanh toán (VNPAY, MoMo, Paypal)</li>
+                    <li>Kiểm tra chức năng thanh toán</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Ngày 5 -->
+    <div class="day">
+      <h2>Ngày 5: Phát triển tính năng & chức năng (Tiếp)</h2>
+      <div class="task">
+        <div class="time">08:00 - 12:00</div>
+        <div class="task-details">
+            <strong>Phát triển chức năng đăng ký/đăng nhập</strong>
+            <ul>
+                <li>Thêm tính năng đăng ký qua email, số điện thoại</li>
+            </ul>
+        </div>
+      </div>
+      <!-- <div class="task break">
+          <div class="time">12:00 - 13:30</div>
+          <div class="task-details">Nghỉ trưa</div>
+      </div> -->
+      <div class="task">
+          <div class="time">13:30 - 17:00</div>
+          <div class="task-details">
+              <strong>Tích hợp tính năng thống kê và theo dõi trên website</strong>
+              <ul>
+                  <li>Kết nối Google Ads, Facebook Pixel</li>
+                  <li>Thống kê & báo cáo bán hàng	- Kết nối WooCommerce Reports</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+    <!-- Ngày 6 -->
+    <div class="day">
+        <h2>Ngày 6: Kiểm thử & Điều chỉnh</h2>
+        <div class="task">
+            <div class="time">08:00 - 10:00</div>
+            <div class="task-details">
+                <strong>Kiểm thử website</strong>
+                <ul>
+                    <li>Test toàn bộ chức năng trên các trình duyệt</li>
+                    <li>Kiểm tra tốc độ website và tối ưu hóa</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">10:00 - 12:00</div>
+            <div class="task-details">
+                <strong>Sửa lỗi & Điều chỉnh UI</strong>
+                <ul>
+                    <li>Sửa lỗi giao diện</li>
+                    <li>Điều chỉnh cho phù hợp với người dùng</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="task break">
+            <div class="time">12:00 - 13:30</div>
+            <div class="task-details">Nghỉ trưa</div>
+        </div> -->
+        <div class="task">
+            <div class="time">13:30 - 15:30</div>
+            <div class="task-details">
+                <strong>Tinh chỉnh tính năng & tốc độ</strong>
+                <ul>
+                    <li>Kiểm tra tốc độ tải trang, tối ưu hóa ảnh</li>
+                    <li>Thêm các plugin bảo mật</li>
+                </ul>
+            </div>
+        </div>
+        <div class="task">
+            <div class="time">15:30 - 17:00</div>
+            <div class="task-details">
+                <strong>Chuẩn bị và bàn giao dự án</strong>
+                <ul>
+                    <li>Kiểm tra lần cuối website</li>
+                    <li>Chuẩn bị bản demo cho khách hàng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
 </html>
